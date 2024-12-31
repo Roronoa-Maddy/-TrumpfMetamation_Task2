@@ -54,7 +54,7 @@ namespace Alarm2
             Keyboard.Type(VirtualKeyShort.TAB);
             Keyboard.Type(VirtualKeyShort.TAB);
             Keyboard.Type(VirtualKeyShort.BACK);
-            SendKeys.SendWait("Welcome To Trumpf Metamation");
+            SendKeys.SendWait("Trumpf Metamation Login Time");
             Thread.Sleep(1000);
             Keyboard.Type(VirtualKeyShort.TAB);
             Keyboard.Type(VirtualKeyShort.SPACE);
