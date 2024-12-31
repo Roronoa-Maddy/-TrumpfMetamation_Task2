@@ -1,0 +1,76 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\P\\Git_Hub\\Roronoa-Maddy\\-TrumpfMetamation_Task2\\Alarm2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B71D3F91-DE10-4D90-B908-103636C53AE4}|Alarm2\\Alarm2.csproj|d:\\p\\git_hub\\roronoa-maddy\\-trumpfmetamation_task2\\alarm2\\alarm2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B71D3F91-DE10-4D90-B908-103636C53AE4}|Alarm2\\Alarm2.csproj|solutionrelative:alarm2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B71D3F91-DE10-4D90-B908-103636C53AE4}|Alarm2\\Alarm2.csproj|d:\\p\\git_hub\\roronoa-maddy\\-trumpfmetamation_task2\\alarm2\\alarm2\\alarm2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{B71D3F91-DE10-4D90-B908-103636C53AE4}|Alarm2\\Alarm2.csproj|solutionrelative:alarm2\\alarm2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B71D3F91-DE10-4D90-B908-103636C53AE4}|Alarm2\\Alarm2.csproj|D:\\P\\Git_Hub\\Roronoa-Maddy\\-TrumpfMetamation_Task2\\Alarm2\\alarm2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B71D3F91-DE10-4D90-B908-103636C53AE4}|Alarm2\\Alarm2.csproj|solutionrelative:alarm2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\P\\Git_Hub\\Roronoa-Maddy\\-TrumpfMetamation_Task2\\Alarm2\\Alarm2\\Program.cs",
+              "RelativeDocumentMoniker": "Alarm2\\Program.cs",
+              "ToolTip": "D:\\P\\Git_Hub\\Roronoa-Maddy\\-TrumpfMetamation_Task2\\Alarm2\\Alarm2\\Program.cs",
+              "RelativeToolTip": "Alarm2\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAiwCYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T14:48:28.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Alarm2.csproj",
+              "DocumentMoniker": "D:\\P\\Git_Hub\\Roronoa-Maddy\\-TrumpfMetamation_Task2\\Alarm2\\Alarm2\\Alarm2.csproj",
+              "RelativeDocumentMoniker": "Alarm2\\Alarm2.csproj",
+              "ToolTip": "D:\\P\\Git_Hub\\Roronoa-Maddy\\-TrumpfMetamation_Task2\\Alarm2\\Alarm2\\Alarm2.csproj",
+              "RelativeToolTip": "Alarm2\\Alarm2.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-25T14:48:27.61Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\P\\Git_Hub\\Roronoa-Maddy\\-TrumpfMetamation_Task2\\Alarm2\\Alarm2\\Form1.cs",
+              "RelativeDocumentMoniker": "Alarm2\\Form1.cs",
+              "ToolTip": "D:\\P\\Git_Hub\\New folder\\Alarm2\\Alarm2\\Form1.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\New folder\\Alarm2\\Alarm2\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T13:46:48.726Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
