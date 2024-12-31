@@ -35,8 +35,11 @@ namespace Alarm2
                 Arguments = "/c start ms-clock:",
                 WindowStyle = ProcessWindowStyle.Hidden
             });
-            
-            
+            //Navigating To alarm Tab
+            System.Threading.Thread.Sleep(5000);
+            Keyboard.Type(VirtualKeyShort.DOWN);
+            Keyboard.Type(VirtualKeyShort.RETURN);
+            Thread.Sleep(1000);
 
             //var automation = new UIA3Automation();
             //var app = FlaUI.Core.Application.Attach("Time");
@@ -44,7 +47,7 @@ namespace Alarm2
 
             //var alarmsList = mainWindow.FindFirstDescendant(cf => cf.ByAutomationId("AlarmsListId"))?.AsListBox();
             //var button = mainWindow.FindFirstDescendant(cf => cf.ByName("Add new alarm")).AsButton();
-           
+
         }
     }
 }
