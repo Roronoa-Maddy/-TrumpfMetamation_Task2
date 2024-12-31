@@ -40,6 +40,15 @@ namespace Alarm2
             Keyboard.Type(VirtualKeyShort.DOWN);
             Keyboard.Type(VirtualKeyShort.RETURN);
             Thread.Sleep(1000);
+            //Creating New Alarm
+            Keyboard.Press(VirtualKeyShort.CONTROL);
+            Keyboard.Type(VirtualKeyShort.KEY_N);
+            Keyboard.Release(VirtualKeyShort.CONTROL);
+            Thread.Sleep(1000);
+            //Hours Changing
+            Keyboard.Type(VirtualKeyShort.UP);
+            Keyboard.Type(VirtualKeyShort.UP);
+            Thread.Sleep(1000);
 
             //var automation = new UIA3Automation();
             //var app = FlaUI.Core.Application.Attach("Time");
