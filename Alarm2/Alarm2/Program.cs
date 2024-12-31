@@ -75,7 +75,15 @@ namespace Alarm2
                 Keyboard.Type(VirtualKeyShort.DOWN);
 
             }
-
+            //Disabling Snooze
+            Thread.Sleep(1000);
+            Keyboard.Type(VirtualKeyShort.TAB);
+            Thread.Sleep(1000);
+            Keyboard.Type(VirtualKeyShort.UP);
+            Keyboard.Type(VirtualKeyShort.UP);
+            Keyboard.Type(VirtualKeyShort.TAB);
+            Keyboard.Type(VirtualKeyShort.RETURN);
+            Thread.Sleep(5000);
             //var automation = new UIA3Automation();
             //var app = FlaUI.Core.Application.Attach("Time");
             //var mainWindow = app.GetMainWindow(automation);
