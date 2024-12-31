@@ -84,6 +84,8 @@ namespace Alarm2
             Keyboard.Type(VirtualKeyShort.TAB);
             Keyboard.Type(VirtualKeyShort.RETURN);
             Thread.Sleep(5000);
+            //Deleting Newly Added Alarm
+            Keyboard.Type(VirtualKeyShort.DELETE);
             //var automation = new UIA3Automation();
             //var app = FlaUI.Core.Application.Attach("Time");
             //var mainWindow = app.GetMainWindow(automation);
