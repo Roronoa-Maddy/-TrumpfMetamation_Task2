@@ -56,6 +56,17 @@ namespace Alarm2
             Keyboard.Type(VirtualKeyShort.BACK);
             SendKeys.SendWait("Welcome To Trumpf Metamation");
             Thread.Sleep(1000);
+            Keyboard.Type(VirtualKeyShort.TAB);
+            Keyboard.Type(VirtualKeyShort.SPACE);
+            Keyboard.Type(VirtualKeyShort.TAB);
+            Keyboard.Type(VirtualKeyShort.RETURN);
+            for (int i = 0; i < 5; i++)
+            {
+                Keyboard.Type(VirtualKeyShort.RIGHT);
+                Keyboard.Type(VirtualKeyShort.RETURN);
+
+            }
+            Thread.Sleep(1000);
 
             //var automation = new UIA3Automation();
             //var app = FlaUI.Core.Application.Attach("Time");
