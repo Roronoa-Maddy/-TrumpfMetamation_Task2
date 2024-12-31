@@ -67,6 +67,14 @@ namespace Alarm2
 
             }
             Thread.Sleep(1000);
+            //Setting Up alarm Tone
+            Keyboard.Type(VirtualKeyShort.TAB);
+            //Keyboard.Type(VirtualKeyShort.RETURN);
+            for (int j = 0; j < 4; j++)
+            {
+                Keyboard.Type(VirtualKeyShort.DOWN);
+
+            }
 
             //var automation = new UIA3Automation();
             //var app = FlaUI.Core.Application.Attach("Time");
