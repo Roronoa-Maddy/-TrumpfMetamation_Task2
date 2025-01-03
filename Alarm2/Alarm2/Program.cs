@@ -67,6 +67,11 @@ namespace Alarm2
                 var Friday = MainWindow.FindFirstDescendant(cf => cf.ByName("Friday")).AsToggleButton();
                 Friday.Click();
                 Thread.Sleep(TimeSpan.FromMilliseconds(250));
+                var alarmsoundoption = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("ChimeComboBox")).AsComboBox();
+                alarmsoundoption.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
+                var Jingle = MainWindow.FindFirstDescendant(cf => cf.ByName("Jingle")).AsListBoxItem();
+                Jingle.Click();
 
             }
 
