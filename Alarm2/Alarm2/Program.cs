@@ -40,7 +40,9 @@ namespace Alarm2
                 Thread.Sleep(TimeSpan.FromSeconds(3));
                 var alaramtab = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("AlarmButton")).AsListBox();
                 alaramtab.DoubleClick();
-
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                var addAlarmButton = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("AddAlarmButton")).AsButton();
+                addAlarmButton.Click();
 
 
 
