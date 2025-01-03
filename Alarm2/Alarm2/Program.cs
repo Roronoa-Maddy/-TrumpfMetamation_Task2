@@ -43,8 +43,13 @@ namespace Alarm2
                 Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var addAlarmButton = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("AddAlarmButton")).AsButton();
                 addAlarmButton.Click();
+                //Hours and Minutes Setting
+                var hoursPicker = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("HourPicker")).AsSpinner();
+                hoursPicker.Value = 9;
 
-
+                var minutesPicker = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("MinutePicker")).AsSpinner();
+                minutesPicker.Value = 30;
+                Thread.Sleep(TimeSpan.FromSeconds(1));
 
 
 
