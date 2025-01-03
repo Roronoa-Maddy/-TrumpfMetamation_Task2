@@ -23,22 +23,31 @@ namespace Alarm2
 {
     internal static class Program
     {
-        
+
         [STAThread]
         static void Main()
         {
 
-           
+
             var clockApp = FlaUI.Core.Application.Launch("C:\\Program Files\\WindowsApps\\Microsoft.WindowsAlarms_11.2411.2.0_x64__8wekyb3d8bbwe\\Time");
 
-            
-            
-          
+            using (var automation = new UIA3Automation())
+            {
+
+                var rootElement = automation.GetDesktop();
+                var condition = automation.ConditionFactory.ByControlType(FlaUI.Core.Definitions.ControlType.Window).And(automation.ConditionFactory.ByName("Clock"));
+                var MainWindow = Retry.WhileNull(() => rootElement.FindFirst((FlaUI.Core.Definitions.TreeScope)TreeScope.Children, condition), timeout: TimeSpan.FromSeconds(10)).Result;
+                Thread.Sleep(TimeSpan.FromSeconds(3));
+                var alaramtab = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("AlarmButton")).AsListBox();
+                alaramtab.DoubleClick();
 
 
 
+
+
+
+            }
 
         }
-
     }
 }
