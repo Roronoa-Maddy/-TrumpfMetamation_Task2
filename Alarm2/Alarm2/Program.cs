@@ -55,7 +55,18 @@ namespace Alarm2
                 var repeatalarm = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("RepeatCheckBox")).AsCheckBox();
                 repeatalarm.Click();
                 Thread.Sleep(TimeSpan.FromMilliseconds(250));
-
+                
+                var monday = MainWindow.FindFirstDescendant(cf => cf.ByName("Monday")).AsToggleButton();
+                monday.Click();
+                var Tuesday = MainWindow.FindFirstDescendant(cf => cf.ByName("Tuesday")).AsToggleButton();
+                Tuesday.Click();
+                var Wednesday = MainWindow.FindFirstDescendant(cf => cf.ByName("Wednesday")).AsToggleButton();
+                Wednesday.Click();
+                var Thursday = MainWindow.FindFirstDescendant(cf => cf.ByName("Thursday")).AsToggleButton();
+                Thursday.Click();
+                var Friday = MainWindow.FindFirstDescendant(cf => cf.ByName("Friday")).AsToggleButton();
+                Friday.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
 
             }
 
