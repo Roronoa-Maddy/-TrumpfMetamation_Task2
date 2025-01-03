@@ -136,4 +136,4 @@ namespace Alarm2
 ### Running the Project
 
 1. Build and run the project in Visual Studio.
-2. Observe the FileExplore widnows for the status of each step.
+2. Observe the Clock Application for the status of each step.
