@@ -81,7 +81,18 @@ namespace Alarm2
                 var savebutton = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("PrimaryButton")).AsButton();
                 savebutton.Click();
                 Thread.Sleep(3000);
+                var editalarm = MainWindow.FindFirstDescendant(cf => cf.ByName("Edit alarms")).AsButton();
+                editalarm.Click();
 
+
+                var alarmname1 = MainWindow.FindFirstDescendant(cf => cf.ByName("Trumpf Metamation Login Time")).Name;
+                if (alarmname1 == "Trumpf Metamation Login Time")
+                {
+                    var alarmdelete = MainWindow.FindFirstDescendant(cf => cf.ByName("Edit alarm, Trumpf Metamation Login Time, 9:30AM, Sunday, Monday, Tuesday, Wednesday, Thursday, ")).AsToggleButton();
+                    alarmdelete.Click();
+                    var alarmdeletebutton = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("DeleteButton")).AsButton();
+                    alarmdeletebutton.Click();
+                }
             }
 
         }
