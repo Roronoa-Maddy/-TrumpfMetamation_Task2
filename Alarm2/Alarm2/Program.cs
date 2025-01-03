@@ -83,16 +83,37 @@ namespace Alarm2
                 Thread.Sleep(3000);
                 var editalarm = MainWindow.FindFirstDescendant(cf => cf.ByName("Edit alarms")).AsButton();
                 editalarm.Click();
-
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
 
                 var alarmname1 = MainWindow.FindFirstDescendant(cf => cf.ByName("Trumpf Metamation Login Time")).Name;
                 if (alarmname1 == "Trumpf Metamation Login Time")
                 {
-                    var alarmdelete = MainWindow.FindFirstDescendant(cf => cf.ByName("Edit alarm, Trumpf Metamation Login Time, 9:30AM, Sunday, Monday, Tuesday, Wednesday, Thursday, ")).AsToggleButton();
+                    var alarmdelete = MainWindow.FindFirstDescendant(cf => cf.ByName("Edit alarm, Trumpf Metamation Login Time, 9:30AM, Weekdays, ")).AsToggleButton();
                     alarmdelete.Click();
                     var alarmdeletebutton = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("DeleteButton")).AsButton();
                     alarmdeletebutton.Click();
                 }
+
+
+
+
+
+                var alarmElements = MainWindow.FindAllDescendants(cf => cf.ByControlType(FlaUI.Core.Definitions.ControlType.ListItem));
+
+
+                var alarmElement = MainWindow.FindFirstDescendant(cf => cf.ByName("Trumpf Metamation Login Time"));
+
+                if (alarmElement == null)
+                {
+                    Console.WriteLine("The alarm was successfully deleted.");
+                }
+
+                var DoneButton = MainWindow.FindFirstDescendant(cf => cf.ByName("Done")).AsButton();
+                DoneButton.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(100));
+                var closeclock = MainWindow.FindFirstDescendant(cf => cf.ByName("Close Clock")).AsButton();
+                closeclock.Click();
+
             }
 
         }
