@@ -34,7 +34,7 @@ This project automates a setting up new Alram in the clock and Deleting The newl
 
 
 
-using FlaUI.Core.Input;
+﻿using FlaUI.Core.Input;
 using FlaUI.Core.WindowsAPI;
 using FlaUI.UIA3;
 using System.Diagnostics;
@@ -47,6 +47,11 @@ using OpenQA.Selenium;
 using FlaUI.Core.Tools;
 using FlaUI.Core.AutomationElements;
 using AutomationElement = FlaUI.Core.AutomationElements.AutomationElement;
+using FlaUI.Core;
+using Application = FlaUI.Core.Application;
+using FlaUI.Core.Conditions;
+using System.Windows;
+using System.Threading;
 
 
 
@@ -54,80 +59,98 @@ namespace Alarm2
 {
     internal static class Program
     {
-        //[DllImport("user32.dll", SetLastError = true)]
-        //private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-        //[DllImport("user32.dll", SetLastError = true)]
-        //static extern bool SetForegroundWindow(IntPtr hWnd);
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+
         [STAThread]
         static void Main()
         {
-           
-            Process.Start(new ProcessStartInfo
+
+
+            var clockApp = FlaUI.Core.Application.Launch("C:\\Program Files\\WindowsApps\\Microsoft.WindowsAlarms_11.2411.2.0_x64__8wekyb3d8bbwe\\Time");
+
+            using (var automation = new UIA3Automation())
             {
-                FileName = "cmd.exe",
-                Arguments = "/c start ms-clock:",
-                WindowStyle = ProcessWindowStyle.Hidden
-            });
-            //Navigating To alarm Tab
-            System.Threading.Thread.Sleep(5000);
-            Keyboard.Type(VirtualKeyShort.DOWN);
-            Keyboard.Type(VirtualKeyShort.RETURN);
-            Thread.Sleep(1000);
-            //Creating New Alarm
-            Keyboard.Press(VirtualKeyShort.CONTROL);
-            Keyboard.Type(VirtualKeyShort.KEY_N);
-            Keyboard.Release(VirtualKeyShort.CONTROL);
-            Thread.Sleep(1000);
-            //Hours Changing
-            Keyboard.Type(VirtualKeyShort.UP);
-            Keyboard.Type(VirtualKeyShort.UP);
-            Thread.Sleep(1000);
-            //Giving Alarm Message
-            Keyboard.Type(VirtualKeyShort.TAB);
-            Keyboard.Type(VirtualKeyShort.TAB);
-            Keyboard.Type(VirtualKeyShort.TAB);
-            Keyboard.Type(VirtualKeyShort.BACK);
-            SendKeys.SendWait("Welcome To Trumpf Metamation");
-            Thread.Sleep(1000);
-            Keyboard.Type(VirtualKeyShort.TAB);
-            Keyboard.Type(VirtualKeyShort.SPACE);
-            Keyboard.Type(VirtualKeyShort.TAB);
-            Keyboard.Type(VirtualKeyShort.RETURN);
-            for (int i = 0; i < 5; i++)
-            {
-                Keyboard.Type(VirtualKeyShort.RIGHT);
-                Keyboard.Type(VirtualKeyShort.RETURN);
+
+                var rootElement = automation.GetDesktop();
+                var condition = automation.ConditionFactory.ByControlType(FlaUI.Core.Definitions.ControlType.Window).And(automation.ConditionFactory.ByName("Clock"));
+                var MainWindow = Retry.WhileNull(() => rootElement.FindFirst((FlaUI.Core.Definitions.TreeScope)TreeScope.Children, condition), timeout: TimeSpan.FromSeconds(10)).Result;
+                Thread.Sleep(TimeSpan.FromSeconds(3));
+                var alaramtab = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("AlarmButton")).AsListBox();
+                alaramtab.DoubleClick();
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                var addAlarmButton = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("AddAlarmButton")).AsButton();
+                addAlarmButton.Click();
+                //Hours and Minutes Setting
+                var hoursPicker = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("HourPicker")).AsSpinner();
+                hoursPicker.Value = 9;
+
+                var minutesPicker = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("MinutePicker")).AsSpinner();
+                minutesPicker.Value = 30;
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                var alarmname = MainWindow.FindFirstDescendant(cf => cf.ByName("Alarm name"));
+                alarmname.AsTextBox().Enter("Trumpf Metamation Login Time");
+                var repeatalarm = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("RepeatCheckBox")).AsCheckBox();
+                repeatalarm.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
+                
+                var monday = MainWindow.FindFirstDescendant(cf => cf.ByName("Monday")).AsToggleButton();
+                monday.Click();
+                var Tuesday = MainWindow.FindFirstDescendant(cf => cf.ByName("Tuesday")).AsToggleButton();
+                Tuesday.Click();
+                var Wednesday = MainWindow.FindFirstDescendant(cf => cf.ByName("Wednesday")).AsToggleButton();
+                Wednesday.Click();
+                var Thursday = MainWindow.FindFirstDescendant(cf => cf.ByName("Thursday")).AsToggleButton();
+                Thursday.Click();
+                var Friday = MainWindow.FindFirstDescendant(cf => cf.ByName("Friday")).AsToggleButton();
+                Friday.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
+                var alarmsoundoption = MainWindow.FindFirstDescendant(cf =>cf.ByAutomationId("ChimeComboBox")).AsComboBox();
+                alarmsoundoption.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
+                var Jingle = MainWindow.FindFirstDescendant(cf => cf.ByName("Jingle")).AsListBoxItem();
+                Jingle.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
+                var snooze = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("SnoozeComboBox")).AsComboBox();
+                snooze.Click();
+                var SnoozeDisable = MainWindow.FindFirstDescendant(cf => cf.ByName("Disabled")).AsListBoxItem();
+                SnoozeDisable.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
+                var savebutton = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("PrimaryButton")).AsButton();
+                savebutton.Click();
+                Thread.Sleep(3000);
+                var editalarm = MainWindow.FindFirstDescendant(cf => cf.ByName("Edit alarms")).AsButton();
+                editalarm.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
+
+                var alarmname1 = MainWindow.FindFirstDescendant(cf => cf.ByName("Trumpf Metamation Login Time")).Name;
+                if (alarmname1 == "Trumpf Metamation Login Time")
+                {
+                    var alarmdelete = MainWindow.FindFirstDescendant(cf => cf.ByName("Edit alarm, Trumpf Metamation Login Time, 9:30AM, Weekdays, ")).AsToggleButton();
+                    alarmdelete.Click();
+                    var alarmdeletebutton = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("DeleteButton")).AsButton();
+                    alarmdeletebutton.Click();
+                }
+
+
+
+
+
+                var alarmElements = MainWindow.FindAllDescendants(cf => cf.ByControlType(FlaUI.Core.Definitions.ControlType.ListItem));
+
+
+                var alarmElement = MainWindow.FindFirstDescendant(cf => cf.ByName("Trumpf Metamation Login Time"));
+
+                if (alarmElement == null)
+                {
+                    Console.WriteLine("The alarm was successfully deleted.");
+                }
+
+                var DoneButton = MainWindow.FindFirstDescendant(cf => cf.ByName("Done")).AsButton();
+                DoneButton.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(100));
+                var closeclock = MainWindow.FindFirstDescendant(cf => cf.ByName("Close Clock")).AsButton();
+                closeclock.Click();
 
             }
-            Thread.Sleep(1000);
-            //Setting Up alarm Tone
-            Keyboard.Type(VirtualKeyShort.TAB);
-            //Keyboard.Type(VirtualKeyShort.RETURN);
-            for (int j = 0; j < 4; j++)
-            {
-                Keyboard.Type(VirtualKeyShort.DOWN);
-
-            }
-            //Disabling Snooze
-            Thread.Sleep(1000);
-            Keyboard.Type(VirtualKeyShort.TAB);
-            Thread.Sleep(1000);
-            Keyboard.Type(VirtualKeyShort.UP);
-            Keyboard.Type(VirtualKeyShort.UP);
-            Keyboard.Type(VirtualKeyShort.TAB);
-            Keyboard.Type(VirtualKeyShort.RETURN);
-            Thread.Sleep(5000);
-            //Deleting Newly Added Alarm
-            Keyboard.Type(VirtualKeyShort.DELETE);
-            //var automation = new UIA3Automation();
-            //var app = FlaUI.Core.Application.Attach("Time");
-            //var mainWindow = app.GetMainWindow(automation);
-
-            //var alarmsList = mainWindow.FindFirstDescendant(cf => cf.ByAutomationId("AlarmsListId"))?.AsListBox();
-            //var button = mainWindow.FindFirstDescendant(cf => cf.ByName("Add new alarm")).AsButton();
 
         }
     }
