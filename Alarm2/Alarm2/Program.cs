@@ -50,7 +50,8 @@ namespace Alarm2
                 var minutesPicker = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("MinutePicker")).AsSpinner();
                 minutesPicker.Value = 30;
                 Thread.Sleep(TimeSpan.FromSeconds(1));
-
+                var alarmname = MainWindow.FindFirstDescendant(cf => cf.ByName("Alarm name"));
+                alarmname.AsTextBox().Enter("Trumpf Metamation Login Time");
 
 
             }
