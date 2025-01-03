@@ -52,6 +52,9 @@ namespace Alarm2
                 Thread.Sleep(TimeSpan.FromSeconds(1));
                 var alarmname = MainWindow.FindFirstDescendant(cf => cf.ByName("Alarm name"));
                 alarmname.AsTextBox().Enter("Trumpf Metamation Login Time");
+                var repeatalarm = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("RepeatCheckBox")).AsCheckBox();
+                repeatalarm.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
 
 
             }
