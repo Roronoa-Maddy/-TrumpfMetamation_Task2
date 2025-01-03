@@ -78,6 +78,9 @@ namespace Alarm2
                 var SnoozeDisable = MainWindow.FindFirstDescendant(cf => cf.ByName("Disabled")).AsListBoxItem();
                 SnoozeDisable.Click();
                 Thread.Sleep(TimeSpan.FromMilliseconds(250));
+                var savebutton = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("PrimaryButton")).AsButton();
+                savebutton.Click();
+                Thread.Sleep(3000);
 
             }
 
