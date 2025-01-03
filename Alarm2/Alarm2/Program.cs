@@ -72,6 +72,12 @@ namespace Alarm2
                 Thread.Sleep(TimeSpan.FromMilliseconds(250));
                 var Jingle = MainWindow.FindFirstDescendant(cf => cf.ByName("Jingle")).AsListBoxItem();
                 Jingle.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
+                var snooze = MainWindow.FindFirstDescendant(cf => cf.ByAutomationId("SnoozeComboBox")).AsComboBox();
+                snooze.Click();
+                var SnoozeDisable = MainWindow.FindFirstDescendant(cf => cf.ByName("Disabled")).AsListBoxItem();
+                SnoozeDisable.Click();
+                Thread.Sleep(TimeSpan.FromMilliseconds(250));
 
             }
 
